@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{normal/base::layout(~{::section})}">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Home Page</title>
+</head>
+
+<body>
+
+	<section>
+
+		<div class="container">
+
+			<div class="card">
+
+				<div class="card-body my-4">
+
+					<div class="container text-center">
+
+						<img src="" style="height: 200px; width: 200px;"
+							class="my_profile_picture" th:src="@{'/img/contact_logo.png'}"
+							alt="profile Photo" />
+
+					</div>
+
+					<h1 class="text-center mt-4 text-secondary">Start Adding your
+						contact on cloud...</h1>
+
+					<a class="btn btn-primary btn-block text-uppercase"
+						th:href="@{/user/add-contact}">Add New Contact</a>
+
+					<hr />
+
+					<h3 class="my-2">Donate Us</h3>
+						
+					<div class="input-group mb-3">
+					
+						<div class="input-group-prepend">
+							<span class="input-group-text">₹</span>
+						</div>
+						
+						<input id="payment_field" type="number" class="form-control"
+							aria-label="Amount (to the nearest rupees)"
+							placeholder="Enter amount here">
+							&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;
+							
+						<button onclick="paymentStart()" class="btn btn-success">PAY</button>
+						
+					</div>
+
+				</div>
+
+			</div>
+
+		</div>
+
+		<script>
+			$('.item').removeClass('active'); //First it remove active from item and
+			$('#home-link').addClass('active'); //Add active only in home
+		</script>
+
+	</section>
+
+</body>
+
+</html>

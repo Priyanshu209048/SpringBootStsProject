@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Forget Password Page</title>
+</head>
+
+<body>
+
+	<section>
+		<div id="login">
+			<div class="container">
+				<div id="login-row" class="row justify-content-center align-items-center">
+					<div id="login-column" class="col-md-6">
+						<div id="login-box" style="height: 230px;" class="col-md-12">
+
+							<!-- Message Box -->
+							<!-- If there is no message in the session then the alert will not be visible -->
+							<div th:if="${session.message}" class="container">
+
+								<div class="alert text-center" th:classappend="${'alert-'+session.message.type}" role="alert">
+
+									<span th:text="${session.message.content}"></span>
+
+								</div>
+
+								<!-- This we done in a old version of the thymeleaf -->
+								<!--<th:block th:text="${#session.removeAttribute('message')}"></th:block>-->
+
+								<th:block th:text="${@sessionHelper.removemessageFromSession()}"></th:block>
+
+							</div>
+
+							<!-- Email Form -->
+							<h3 class="text-center m-3">Your Registered Email</h3>
+							
+							<form action="" th:action="@{/send-otp}" method="post">
+							
+								<div class="form-group">
+								
+									<input name="email" required="required" type="email" placeholder="Enter email here" class="form-control" />
+								
+								</div>
+								
+								<div class="container text-center mt-4">
+									<button class="btn btn-warning">Send OTP</button>
+								</div>
+							
+							</form>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+</body>
+
+</html>
