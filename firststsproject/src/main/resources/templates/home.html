@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+</head>
+
+<body>
+
+	<h1>Message Expressions Demo:</h1>
+	<p th:text="#{app.name}"></p>
+	<p th:text="#{welcome.message(${name}, ${course})}"></p>
+	<p th:utext="#{welcome.message(${name}, ${course})}"></p>
+	
+	<p th:text="${#locale.country}"></p>
+
+	<p th:text="${data}"></p>
+	<p>[[${data}]]</p>
+
+	<p th:utext="${data}"></p>
+	<p>[(${data})]</p>
+
+</body>
+
+</html>

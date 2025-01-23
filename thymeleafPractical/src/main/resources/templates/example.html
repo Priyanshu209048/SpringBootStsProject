@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Example</title>
+	
+	<link rel="stylesheet" th:href="@{/css/mystyle.css}" />
+	
+</head>
+
+<body>
+
+	<div class="container">
+
+		<h1>Adding css, JavaScript and Image in Thymeleaf</h1>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat itaque magnam ea perspiciatis cupiditate
+			molestiae sequi consequuntur ullam ratione provident quidem earum accusamus veritatis doloribus hic optio
+			labore. Quo officia minus doloremque minima unde soluta neque illum ad nemo culpa porro enim architecto
+			quibusdam impedit velit esse maxime debitis mollitia.</p>
+			
+		<img class="profile" th:src="@{/image/profile.jpeg}" alt="" />
+
+	</div>
+	
+	<script th:src="@{/js/myjs.js}"></script>
+
+</body>
+
+</html>

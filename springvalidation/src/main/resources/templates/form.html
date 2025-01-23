@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Login Here</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+
+<body style="background: cyan;">
+
+	<div class="container">
+
+		<div class="row mt-5">
+
+			<div class="col-md-6 offset-md-3">
+
+				<!-- This novalidate is used to remove the client side validation -->
+				<form class="bg-white p-4" novalidate="novalidate" th:action="@{/process}" method="post" th:object="${loginData}">
+
+					<h1 class="text-center">Login Form</h1>
+
+					<div class="form-group">
+						<label for="exampleInputEmail1">User Name</label>
+						
+						<!-- Here classappend attribute use to append the required class according to event in the class of input tag -->
+						<input type="text" 
+								name="userName" 
+								class="form-control" 
+								id="exampleInputEmail1"
+								aria-describedby="emailHelp" 
+								th:value="${loginData.userName}"
+								th:classappend="${#fields.hasErrors('userName')?'is-invalid':''}" 
+								placeholder="Enter Name">
+						
+						<!-- In fields.errors we get the field according to the annotation we give in the LoginData class -->
+						<div th:each="e:${#fields.errors('userName')}" th:text="${e}" class="invalid-feedback">
+						</div>
+						
+					</div>
+
+					<div class="form-group">
+						<label for="exampleInputPassword1">Email address</label>
+						<input type="email" 
+								name="email" 
+								class="form-control" 
+								id="exampleInputPassword1"
+								th:value="${loginData.email}"
+								th:classappend="${#fields.hasErrors('email')?'is-invalid':''}" 
+								placeholder="Enter Email">
+								
+						<div th:each="e:${#fields.errors('email')}" th:text="${e}" class="invalid-feedback">
+						</div>
+					</div>
+
+					<div class="form-check">
+						
+						<input type="checkbox"
+						name="agreed"
+						class="form-check-input" 
+						id="exampleCheck1"
+						th:value="${loginData.agreed}"
+						th:classappend="${#fields.hasErrors('agreed')?'is-invalid':''}" >
+						
+						<label class="form-check-label" for="exampleCheck1">Check me out</label>
+					
+						<div th:each="e:${#fields.errors('agreed')}" th:text="${e}" class="invalid-feedback">
+						</div>
+					
+					</div>
+
+					<div class="container text-center">
+						<button type="submit" class="btn btn-primary">Submit</button>
+					</div>
+
+				</form>
+
+			</div>
+
+		</div>
+
+	</div>
+
+</body>
+
+</html>
